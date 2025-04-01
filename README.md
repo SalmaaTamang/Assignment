@@ -210,97 +210,96 @@ Information Flow
         Conversation titles are stored in the ChatHistory table.
          
      
-
-### API Endpoints  
-1. File Upload and Knowledge Base Creation  
-
-    Endpoint : /upload/
-    Method : POST
-    Parameters :
-        kb_name: Name of the knowledge base.
-        files: List of uploaded files.
+ ### API Endpoints  
+    1. File Upload and Knowledge Base Creation  
+    
+        Endpoint : /upload/
+        Method : POST
+        Parameters :
+            kb_name: Name of the knowledge base.
+            files: List of uploaded files.
+             
+        Response :
+            message: Status message.
+            task_id: ID of the background task.
+             
          
-    Response :
-        message: Status message.
-        task_id: ID of the background task.
+    
+    2. List Knowledge Bases  
+    
+        Endpoint : /kb_metadata/
+        Method : GET
+        Response :
+            List of knowledge bases with their metadata.
+             
          
-     
-
-2. List Knowledge Bases  
-
-    Endpoint : /kb_metadata/
-    Method : GET
-    Response :
-        List of knowledge bases with their metadata.
+    
+    3. Start a New Chat  
+    
+        Endpoint : /newchat/
+        Method : POST
+        Parameters :
+            kb_name: Name of the knowledge base.
+             
+        Response :
+            conv_id: Unique identifier for the conversation.
+             
          
-     
-
-3. Start a New Chat  
-
-    Endpoint : /newchat/
-    Method : POST
-    Parameters :
-        kb_name: Name of the knowledge base.
+    
+    4. Chat with Knowledge Base  
+    
+        Endpoint : /chat/
+        Method : POST
+        Parameters :
+            conv_id: Conversation ID.
+            user_input: User query.
+             
+        Response :
+            response: AI-generated response.
+            chunk_ids: IDs of the chunks used.
+            chunk_texts: Texts of the chunks.
+             
          
-    Response :
-        conv_id: Unique identifier for the conversation.
+    
+    5. Get Chat History  
+    
+        Endpoint : /chathistory/
+        Method : GET
+        Response :
+            List of conversations with their titles.
+             
          
-     
-
-4. Chat with Knowledge Base  
-
-    Endpoint : /chat/
-    Method : POST
-    Parameters :
-        conv_id: Conversation ID.
-        user_input: User query.
+    
+    6. Get Chat History by Conversation ID  
+    
+        Endpoint : /chathistory/{conv_id}
+        Method : GET
+        Response :
+            Detailed chat history for the specified conversation.
+             
          
-    Response :
-        response: AI-generated response.
-        chunk_ids: IDs of the chunks used.
-        chunk_texts: Texts of the chunks.
+    
+    7. Check Task Status  
+    
+        Endpoint : /task_status/{task_id}
+        Method : GET
+        Response :
+            task_id: Task ID.
+            status: Current status of the task.
+             
          
-     
-
-5. Get Chat History  
-
-    Endpoint : /chathistory/
-    Method : GET
-    Response :
-        List of conversations with their titles.
-         
-     
-
-6. Get Chat History by Conversation ID  
-
-    Endpoint : /chathistory/{conv_id}
-    Method : GET
-    Response :
-        Detailed chat history for the specified conversation.
-         
-     
-
-7. Check Task Status  
-
-    Endpoint : /task_status/{task_id}
-    Method : GET
-    Response :
-        task_id: Task ID.
-        status: Current status of the task.
-         
-     
-
-8. Conversational Form  
-
-    Endpoint : /callback
-    Method : POST
-    Parameters :
-        session_id: Session ID (optional).
-        user_input: User input.
-         
-    Response :
-        session_id: Updated session ID.
-        response: Next question or confirmation message.
+    
+    8. Conversational Form  
+    
+        Endpoint : /callback
+        Method : POST
+        Parameters :
+            session_id: Session ID (optional).
+            user_input: User input.
+             
+        Response :
+            session_id: Updated session ID.
+            response: Next question or confirmation message.
          
      
              
