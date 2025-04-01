@@ -103,3 +103,157 @@ Tables and Their Descriptions
              
          
      
+
+Models Used  
+Embedding Model  
+
+    SentenceTransformer ('all-MiniLM-L6-v2') :
+        Generates 384-dimensional embeddings for text chunks.
+        Used for similarity search in the knowledge base.
+         
+     
+
+Generative Model  
+
+    Gemini API ('gemini-2.0-flash-exp') :
+        Generates responses to user queries based on context from the knowledge base.
+         
+     
+
+Text Splitter  
+
+    RecursiveCharacterTextSplitter :
+        Splits extracted text into smaller chunks for embedding generation.
+         
+     
+
+Text Extraction Libraries  
+
+    PyPDF2 : Extracts text from PDF files.
+    Docx : Extracts text from DOCX files.
+    PIL + pytesseract : Extracts text from images.
+    Plain Text Reader : Reads text from .txt files.
+     
+
+Information Flow  
+
+    File Upload and Knowledge Base Creation : 
+        Users upload files (PDF, DOCX, images, etc.) via the /upload/ endpoint.
+        The system extracts text from the files and splits it into chunks.
+        Embeddings are generated for each chunk and stored in the KBEmbeddings table.
+        Metadata about the knowledge base is stored in the KBMetadata table.
+         
+
+    Querying the Knowledge Base : 
+        Users send natural language queries via the /chat/ endpoint.
+        The system retrieves relevant chunks from the knowledge base using cosine similarity.
+        A response is generated using the Gemini API and returned to the user.
+         
+
+    Conversational Form : 
+        Users interact with the /callback endpoint to provide their name, email, phone number, and preferred appointment date.
+        The system validates the input and stores it in the ConversationalFormData table.
+         
+
+    Chat History and Usage Tracking : 
+        Chat interactions are stored in the ChatTable.
+        Token usage is tracked in the ChatUsage table.
+        Conversation titles are stored in the ChatHistory table.
+         
+     
+
+API Endpoints  
+1. File Upload and Knowledge Base Creation  
+
+    Endpoint : /upload/
+    Method : POST
+    Parameters :
+        kb_name: Name of the knowledge base.
+        files: List of uploaded files.
+         
+    Response :
+        message: Status message.
+        task_id: ID of the background task.
+         
+     
+
+2. List Knowledge Bases  
+
+    Endpoint : /kb_metadata/
+    Method : GET
+    Response :
+        List of knowledge bases with their metadata.
+         
+     
+
+3. Start a New Chat  
+
+    Endpoint : /newchat/
+    Method : POST
+    Parameters :
+        kb_name: Name of the knowledge base.
+         
+    Response :
+        conv_id: Unique identifier for the conversation.
+         
+     
+
+4. Chat with Knowledge Base  
+
+    Endpoint : /chat/
+    Method : POST
+    Parameters :
+        conv_id: Conversation ID.
+        user_input: User query.
+         
+    Response :
+        response: AI-generated response.
+        chunk_ids: IDs of the chunks used.
+        chunk_texts: Texts of the chunks.
+         
+     
+
+5. Get Chat History  
+
+    Endpoint : /chathistory/
+    Method : GET
+    Response :
+        List of conversations with their titles.
+         
+     
+
+6. Get Chat History by Conversation ID  
+
+    Endpoint : /chathistory/{conv_id}
+    Method : GET
+    Response :
+        Detailed chat history for the specified conversation.
+         
+     
+
+7. Check Task Status  
+
+    Endpoint : /task_status/{task_id}
+    Method : GET
+    Response :
+        task_id: Task ID.
+        status: Current status of the task.
+         
+     
+
+8. Conversational Form  
+
+    Endpoint : /callback
+    Method : POST
+    Parameters :
+        session_id: Session ID (optional).
+        user_input: User input.
+         
+    Response :
+        session_id: Updated session ID.
+        response: Next question or confirmation message.
+         
+     
+             
+         
+     
