@@ -3,7 +3,8 @@
 ### Overview  
 
 ### The application integrates various technologies such as: 
-
+    
+    StreamLitApp : For User Interaction
     FastAPI : For building RESTful APIs.
     LanceDB : A vector database for storing embeddings and metadata.
     Gemini API : For generating responses to user queries.
@@ -32,11 +33,11 @@
     
 #### Features
     
-    1. Landing Page
+##### Landing Page
     
     A simple welcome page introducing the application.
     
-    2. Create Ingestion
+##### Create Ingestion
     
     Users can upload files (PDF, DOCX, TXT, JPG, PNG) to create a knowledge base.
     
@@ -44,7 +45,7 @@
     
     The ingestion process is tracked, and the status is updated in real-time.
     
-    3. Chat with Docs
+##### Chat with Docs
     
     Users can chat with the system based on knowledge bases.
     
@@ -56,7 +57,7 @@
     
     Responses are provided along with chunked text sources for reference.
     
-    4. Book an Appointment
+##### Book an Appointment
     
     Users can initiate a chatbot-based appointment booking process.
     
