@@ -1,8 +1,8 @@
 # Assignment
 ## Chat with docs App with Conservational Form for booking appointment
-Overview  
+### Overview  
 
-The application integrates various technologies such as: 
+### The application integrates various technologies such as: 
 
     FastAPI : For building RESTful APIs.
     LanceDB : A vector database for storing embeddings and metadata.
@@ -12,7 +12,7 @@ The application integrates various technologies such as:
     LangChain : For splitting text into chunks.
      
 
-The system supports: 
+### The system supports: 
 
     Uploading files and creating knowledge bases.
     Querying the knowledge base using natural language.
@@ -20,7 +20,7 @@ The system supports:
     Collecting user information via a conversational form.
      
 
-Database Structure  
+### Database Structure  
 
 The application uses LanceDB to store data in multiple tables. Each table is represented by a Pydantic model, and the relationships between tables are managed using foreign keys. 
 Tables and Their Descriptions  
@@ -104,7 +104,7 @@ Tables and Their Descriptions
          
      
 
-Models Used  
+### Models Used  
 Embedding Model  
 
     SentenceTransformer ('all-MiniLM-L6-v2') :
@@ -162,7 +162,7 @@ Information Flow
          
      
 
-API Endpoints  
+### API Endpoints  
 1. File Upload and Knowledge Base Creation  
 
     Endpoint : /upload/
