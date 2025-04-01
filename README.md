@@ -22,47 +22,47 @@
 
 ### This Streamlit application provides a user-friendly interface for interacting with a FastAPI backend. The app allows users to:
 
-Upload files to a knowledge base
-
-Engage in chatbot conversations
-
-View and manage chat history
-
-Book appointments
-
-Features
-
-1. Landing Page
-
-A simple welcome page introducing the application.
-
-2. Create Ingestion
-
-Users can upload files (PDF, DOCX, TXT, JPG, PNG) to create a knowledge base.
-
-The application submits files to the FastAPI backend for processing.
-
-The ingestion process is tracked, and the status is updated in real-time.
-
-3. Chat with Docs
-
-Users can chat with the system based on knowledge bases.
-
-The sidebar displays available knowledge bases for selection.
-
-A chat history section is available to view past conversations.
-
-Users can start a new chat session.
-
-Responses are provided along with chunked text sources for reference.
-
-4. Book an Appointment
-
-Users can initiate a chatbot-based appointment booking process.
-
-Conversations are managed using session IDs.
-
-The chatbot interacts with users to facilitate appointment scheduling.
+    Upload files to a knowledge base
+    
+    Engage in chatbot conversations
+    
+    View and manage chat history
+    
+    Book appointments
+    
+#### Features
+    
+    1. Landing Page
+    
+    A simple welcome page introducing the application.
+    
+    2. Create Ingestion
+    
+    Users can upload files (PDF, DOCX, TXT, JPG, PNG) to create a knowledge base.
+    
+    The application submits files to the FastAPI backend for processing.
+    
+    The ingestion process is tracked, and the status is updated in real-time.
+    
+    3. Chat with Docs
+    
+    Users can chat with the system based on knowledge bases.
+    
+    The sidebar displays available knowledge bases for selection.
+    
+    A chat history section is available to view past conversations.
+    
+    Users can start a new chat session.
+    
+    Responses are provided along with chunked text sources for reference.
+    
+    4. Book an Appointment
+    
+    Users can initiate a chatbot-based appointment booking process.
+    
+    Conversations are managed using session IDs.
+    
+    The chatbot interacts with users to facilitate appointment scheduling.
 
 
     
